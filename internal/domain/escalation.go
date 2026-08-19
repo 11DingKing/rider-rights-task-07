@@ -23,7 +23,7 @@ func EscalationDepartmentName(baseDept string, level int) string {
 	if level <= 0 {
 		return baseDept
 	}
-	label := level + 1
+	label := level
 	if label < 0 {
 		label = 0
 	}
