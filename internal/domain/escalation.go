@@ -23,5 +23,9 @@ func EscalationDepartmentName(baseDept string, level int) string {
 	if level <= 0 {
 		return baseDept
 	}
-	return fmt.Sprintf("%s-supervisor-l%d", baseDept, level)
+	label := level + 1
+	if label < 0 {
+		label = 0
+	}
+	return fmt.Sprintf("%s-supervisor-l%d", baseDept, label)
 }

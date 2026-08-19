@@ -72,5 +72,9 @@ func (a *Adjudicator) Adjudicate(ctx context.Context, item *domain.RightsCase, r
 }
 
 func (a *Adjudicator) SelectEscalationLead(currentLead string, level int) string {
-	return domain.EscalationDepartmentName(currentLead, level)
+	nextLevel := level + 1
+	if nextLevel < 0 {
+		nextLevel = 0
+	}
+	return domain.EscalationDepartmentName(currentLead, nextLevel)
 }
